@@ -1,8 +1,8 @@
 import React from "react";
 
-const QuestionsList = ({ questions, onCreateQuestion, onViewDetails, onFilterByTitle, onFilterByTag }) => (
+const FilterResult = ({ questions, onViewDetails }) => (
     <div>
-        <h2>{ "Stack Overflow" }</h2>
+        <h2>{ "Filter Result" }</h2>
         <table border="1" align="center">
             <thead>
                 <tr>
@@ -23,13 +23,7 @@ const QuestionsList = ({ questions, onCreateQuestion, onViewDetails, onFilterByT
                 }
             </tbody>
         </table>
-        <button onClick={onCreateQuestion}>Add new Question</button>
-        <br/>
-        <hr></hr>
-        <input/>
-        <button onClick={onFilterByTitle}>Filter By Title</button>
-        <button onClick={onFilterByTag}>Filter By Tag</button>
     </div>
 );
 
-export default QuestionsList;
+export default FilterResult;

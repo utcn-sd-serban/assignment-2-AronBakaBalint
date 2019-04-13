@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import model from "../model/model";
-import QuestionsList from "./QuestionsList";
+import FilterResult from "./FilterResult";
 import questionsListPresenter from "../presenter/questionsListPresenter";
 
 const mapModelStateToComponentState = modelState => ({
     questions: modelState.questions
 });
 
-export default class SmartQuestionsList extends Component {
+export default class SmartFilterByTitleResult extends Component {
     constructor() {
         super();
         this.state = mapModelStateToComponentState(model.state);
@@ -19,14 +19,25 @@ export default class SmartQuestionsList extends Component {
         model.removeListener("change", this.listener);
     }
 
+    filterByTitle(searchArray, text){
+        var filterResult = new Array(0);
+        var k =0;
+        for(var i=0;i < searchArray.length;i++){
+            if(searchArray[i].title === text){
+                filterResult[k++]=(searchArray[i]);
+            }
+        }
+
+        return filterResult;
+    }
+
     render() {
         return (
-            <QuestionsList 
+            <FilterResult 
                 onViewDetails={questionsListPresenter.onViewDetails}
-                onCreateQuestion={questionsListPresenter.onCreateQuestion}
-                onFilterByTag={questionsListPresenter.onFilterByTag}
-                onFilterByTitle={questionsListPresenter.onFilterByTitle}
-                questions={this.state.questions} />
+                questions={this.filterByTitle(this.state.questions, "Java 8")} />
         );
     }
+
+    
 }
