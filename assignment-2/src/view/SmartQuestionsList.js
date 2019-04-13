@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import model from "../model/model";
 import QuestionsList from "./QuestionsList";
-import QuestionsListPresenter from "../presenter/QuestionsListPresenter";
+import questionsListPresenter from "../presenter/questionsListPresenter";
 
 const mapModelStateToComponentState = modelState => ({
     questions: modelState.questions
@@ -22,8 +22,8 @@ export default class SmartQuestionsList extends Component {
     render() {
         return (
             <QuestionsList 
-                onViewDetails={QuestionsListPresenter.onViewDetails}
-                onCreateQuestion={QuestionsListPresenter.onCreateQuestion}
+                onViewDetails={questionsListPresenter.onViewDetails}
+                onCreateQuestion={questionsListPresenter.onCreateQuestion}
                 questions={this.state.questions} />
         );
     }

@@ -1,12 +1,12 @@
 import React from "react";
 
-const QuestionsList = ({ questions, title, onCreateQuestion, onViewDetails }) => (
+const QuestionsList = ({ questions, onCreateQuestion, onViewDetails }) => (
     <div>
-        <h2>{ title || "Questions" }</h2>
+        <h2>{ "Stack Overflow" }</h2>
         <table border="1">
             <thead>
                 <tr>
-                    <th>QuestionID</th>
+                    <th>Question ID</th>
                     <th>Title</th>
                     <th></th>
                 </tr>

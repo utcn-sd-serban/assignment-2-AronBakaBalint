@@ -12,7 +12,7 @@ const App = () => (
       <Switch>
         <Route exact={true} component={SmartQuestionsList} path="/" />
         <Route exact={true} component={SmartCreateQuestion} path="/create-question" />
-        <Route exact={true} component={SmartQuestionDetails} path="/student-question/:index" />
+        <Route exact={true} component={SmartQuestionDetails} path="/question-details/:index" />
       </Switch>
     </HashRouter>
   </div>

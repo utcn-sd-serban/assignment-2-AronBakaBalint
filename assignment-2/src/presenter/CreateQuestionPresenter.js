@@ -6,7 +6,7 @@ class CreateQuestionPresenter {
         model.addQuestion(model.state.newQuestion.title, model.state.newQuestion.body, model.state.newQuestion.tags);
         model.changeNewQuestionProperty("title", "");
         model.changeNewQuestionProperty("body", "");
-        model.changeNewQuestionProperty("tags", "");
+        model.changeNewQuestionProperty("tags","");
         window.location.assign("#/");
     }
 

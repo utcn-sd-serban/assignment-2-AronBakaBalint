@@ -16,7 +16,7 @@ const CreateQuestion = ({ title, body, tags, onCreate, onChange }) => (
             <input value={tags} 
                 onChange={ e => onChange("tags", e.target.value) } />
             <br />
-            <button onClick={onCreate}>Create!</button>
+            <button onClick={onCreate}>Add</button>
         </div>
     </div>
 );

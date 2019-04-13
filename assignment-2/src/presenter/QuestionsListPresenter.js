@@ -1,4 +1,3 @@
-//import model from "../model/model";
 
 class QuestionsListPresenter {
     onCreateQuestion() {

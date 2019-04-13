@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import model from "../model/model";
 
 import CreateQuestion from "./CreateQuestion";
-import CreateQuestionPresenter from "../presenter/CreateQuestionPresenter";
+import createQuestionPresenter from "../presenter/createQuestionPresenter";
 
 const mapModelStateToComponentState = modelState => ({
     title: modelState.newQuestion.title,
@@ -25,8 +25,8 @@ export default class SmartCreateQuestion extends Component {
     render() {
         return (
             <CreateQuestion 
-                onCreate={CreateQuestionPresenter.onCreate}
-                onChange={CreateQuestionPresenter.onChange}
+                onCreate={createQuestionPresenter.onCreate}
+                onChange={createQuestionPresenter.onChange}
                 title={this.state.title}
                 body={this.state.body}
                 tags={this.state.tags} />
