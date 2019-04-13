@@ -3,7 +3,7 @@ import React from "react";
 const QuestionsList = ({ questions, onCreateQuestion, onViewDetails }) => (
     <div>
         <h2>{ "Stack Overflow" }</h2>
-        <table border="1">
+        <table border="1" align="center">
             <thead>
                 <tr>
                     <th>Question ID</th>
@@ -24,6 +24,11 @@ const QuestionsList = ({ questions, onCreateQuestion, onViewDetails }) => (
             </tbody>
         </table>
         <button onClick={onCreateQuestion}>Add new Question</button>
+        <br/>
+        <hr></hr>
+        <input/>
+        <button>Filter By Title</button>
+        <button>Filter By Tag</button>
     </div>
 );
 

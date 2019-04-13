@@ -30,7 +30,9 @@ export default class SmartQuestionDetails extends Component {
             <QuestionDetails
                 title={this.state.title}
                 body={this.state.body}
-                tags={this.state.tags} />
+                tags={this.state.tags}
+                author={this.state.author}
+                postDate={this.state.postDate} />
         );
     }
 }
