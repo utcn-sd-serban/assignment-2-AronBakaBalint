@@ -6,6 +6,7 @@ class Model extends EventEmitter {
         super();
         this.state = {
             questionid: 2,
+            searchWord: "",
             questions: [{
                 id: 1,
                 title: "Java 8",
@@ -73,6 +74,15 @@ class Model extends EventEmitter {
         };
         this.emit("change", this.state);
     }
+
+    setSearchWord(value){
+        this.state.searchWord = value;
+    }
+
+    getSearchWord(){
+        return this.state.searchWord;
+    }
+
 }
 
 const model = new Model();

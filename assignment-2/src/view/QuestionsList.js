@@ -1,6 +1,7 @@
 import React from "react";
+import model from "../model/model";
 
-const QuestionsList = ({ questions, onCreateQuestion, onViewDetails, onFilterByTitle, onFilterByTag }) => (
+const QuestionsList = ({ questions, onCreateQuestion, updateSearchword, onViewDetails, onFilterByTitle, onFilterByTag }) => (
     <div>
         <h2>{ "Stack Overflow" }</h2>
         <table border="1" align="center">
@@ -26,7 +27,7 @@ const QuestionsList = ({ questions, onCreateQuestion, onViewDetails, onFilterByT
         <button onClick={onCreateQuestion}>Add new Question</button>
         <br/>
         <hr></hr>
-        <input/>
+        <input onChange={ e => model.setSearchWord(e.target.value) }/>
         <button onClick={onFilterByTitle}>Filter By Title</button>
         <button onClick={onFilterByTag}>Filter By Tag</button>
     </div>

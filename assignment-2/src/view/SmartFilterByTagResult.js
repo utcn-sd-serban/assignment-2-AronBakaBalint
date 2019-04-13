@@ -37,7 +37,7 @@ export default class SmartFilterByTagResult extends Component {
             
             <FilterResult 
                 onViewDetails={questionsListPresenter.onViewDetails}
-                questions={this.filterByTag(this.state.questions, "C")} />
+                questions={this.filterByTag(this.state.questions, model.getSearchWord())} />
         );
     }
 

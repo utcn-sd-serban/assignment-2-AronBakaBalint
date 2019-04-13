@@ -35,7 +35,7 @@ export default class SmartFilterByTitleResult extends Component {
         return (
             <FilterResult 
                 onViewDetails={questionsListPresenter.onViewDetails}
-                questions={this.filterByTitle(this.state.questions, "Java 8")} />
+                questions={this.filterByTitle(this.state.questions, model.getSearchWord())} />
         );
     }
 
