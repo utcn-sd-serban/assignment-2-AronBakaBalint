@@ -4,11 +4,14 @@ import model from "../model/model";
 const QuestionsList = ({ questions, onCreateQuestion, updateSearchword, onViewDetails, onFilterByTitle, onFilterByTag }) => (
     <div>
         <h2>{ "Stack Overflow" }</h2>
-        <table border="1" align="center">
-            <thead>
+        <br/>
+        <div className="col-md-12">
+        <table className="table" border="1">
+            <thead class="thead-dark">
                 <tr>
                     <th>Question ID</th>
                     <th>Title</th>
+                    <th>Text</th>
                     <th></th>
                 </tr>
             </thead>
@@ -18,13 +21,15 @@ const QuestionsList = ({ questions, onCreateQuestion, updateSearchword, onViewDe
                         <tr key={index}>
                             <td>{question.id}</td>
                             <td>{question.title}</td>
-                            <td><button onClick={() => onViewDetails(index)}>View Details</button></td>
+                            <td>{question.body}</td>
+                            <td><button className="btn btn-secondary" onClick={() => onViewDetails(index)} >View Details</button></td>
                         </tr>
                     ))
                 }
             </tbody>
         </table>
-        <button onClick={onCreateQuestion}>Add new Question</button>
+        </div>
+        <button class="btn btn-primary"  onClick={onCreateQuestion}>Add new Question</button>
         <br/>
         <hr></hr>
         <input onChange={ e => model.setSearchWord(e.target.value) }/>

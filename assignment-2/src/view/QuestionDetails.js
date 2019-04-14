@@ -3,15 +3,18 @@ import React from "react";
 const QuestionDetails = ({ title, body, tags, author, postDate }) => (
     <div>
         <h2>Question</h2>
-        <span>{ title }</span>
+        <span><font size="18"><b>{ title }</b></font></span>
         <br />
-        <span>{ body }</span>
+        <span><font size="10">{ body }</font></span>
         <br />
-        <span>{ tags }</span>
         <br />
-        <span>{ author }</span>
         <br />
-        <span>{ postDate }</span>
+        <span><font size="6" color="blue">{ author }</font></span>
+        <br />
+        <span class="badge badge-secondary">{ postDate }</span>
+        <br />
+        <br/>
+        <span class="badge badge-secondary"><font size="4">{ tags }</font></span>
         <br />
     </div>
 );
