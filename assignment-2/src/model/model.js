@@ -30,9 +30,7 @@ class Model extends EventEmitter {
         };
     }
 
-
-    addQuestion(title, body, tags) {
-
+    getCurrentDate(){
         // get current date
         var today = new Date();
         var dd = today.getDate();
@@ -45,20 +43,23 @@ class Model extends EventEmitter {
             mm = '0'+mm
         } 
         today = mm + '/' + dd + '/' + yyyy;
-        /////////////////////
+        
+        return today;
+    }
 
-        //increment id whenever we add a new Question
-        //to avoid "id = questions.length"
-        this.state.questionid++;
+
+    addQuestion(title, body, tags) {
+        
         this.state = {
             ...this.state,
+            questionid: this.state.questionid + 1,
             questions: this.state.questions.concat([{
-                id: this.state.questionid,
+                id: this.state.questionid+1,
                 title: title,
                 body: body,
                 tags: tags,
                 author: "Jack",
-                postDate: today
+                postDate: this.getCurrentDate
             }])
         };
         this.emit("change", this.state);

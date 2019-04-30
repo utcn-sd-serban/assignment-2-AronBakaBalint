@@ -7,7 +7,7 @@ class CreateQuestionPresenter {
         model.changeNewQuestionProperty("title", "");
         model.changeNewQuestionProperty("body", "");
         model.changeNewQuestionProperty("tags","");
-        window.location.assign("#/");
+        window.location.assign("#/question-list");
     }
 
     onChange(property, value) {

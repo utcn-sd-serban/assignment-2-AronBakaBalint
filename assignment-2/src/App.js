@@ -8,12 +8,14 @@ import SmartCreateQuestion from './view/SmartCreateQuestion';
 import SmartQuestionDetails from './view/SmartQuestionDetails';
 import SmartFilterByTagResult from './view/SmartFilterByTagResult';
 import SmartFilterByTitleResult from './view/SmartFilterByTitleResult';
+import SmartLogin from './view/SmartLogin';
 
 const App = () => (
   <div className="App">
     <HashRouter>
       <Switch>
-        <Route exact={true} component={SmartQuestionsList} path="/" />
+        <Route exact={true} component={SmartLogin} path="/" />
+        <Route exact={true} component={SmartQuestionsList} path="/question-list" />
         <Route exact={true} component={SmartCreateQuestion} path="/create-question" />
         <Route exact={true} component={SmartQuestionDetails} path="/question-details/:index" />
         <Route exact={true} component={SmartFilterByTagResult} path="/tag-filter-result" />
