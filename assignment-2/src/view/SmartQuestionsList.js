@@ -4,7 +4,7 @@ import QuestionsList from "./QuestionsList";
 import questionsListPresenter from "../presenter/questionsListPresenter";
 
 const mapModelStateToComponentState = modelState => ({
-    questions: modelState.questions,
+    questions: modelState.questions
 });
 
 export default class SmartQuestionsList extends Component {

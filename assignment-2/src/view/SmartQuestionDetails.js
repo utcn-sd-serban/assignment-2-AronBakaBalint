@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import model from "../model/model";
 
 import QuestionDetails from "./QuestionDetails";
+import createQuestionPresenter from "../presenter/createQuestionPresenter";
 
 const mapModelStateToComponentState = (modelState, props) => (
     modelState.questions[props.match.params.index]
@@ -28,11 +29,16 @@ export default class SmartQuestionDetails extends Component {
     render() {
         return (
             <QuestionDetails
+                id={this.state.id}
                 title={this.state.title}
                 body={this.state.body}
                 tags={this.state.tags}
                 author={this.state.author}
-                postDate={this.state.postDate} />
+                postDate={this.state.postDate}
+                answers={model.getAnswersByQuestionId(this.state.id)}
+                onCreateAnswer={createQuestionPresenter.onCreateAnswer}
+                onAnswerChange={createQuestionPresenter.onAnswerChange}
+            />
         );
     }
 }

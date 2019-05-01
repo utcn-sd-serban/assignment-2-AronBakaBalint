@@ -25,8 +25,8 @@ export default class SmartCreateQuestion extends Component {
     render() {
         return (
             <CreateQuestion 
-                onCreate={createQuestionPresenter.onCreate}
-                onChange={createQuestionPresenter.onChange}
+                onCreate={createQuestionPresenter.onCreateQuestion}
+                onChange={createQuestionPresenter.onQuestionChange}
                 title={this.state.title}
                 body={this.state.body}
                 tags={this.state.tags} />

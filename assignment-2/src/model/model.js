@@ -6,6 +6,7 @@ class Model extends EventEmitter {
         super();
         this.state = {
             questionid: 2,
+            answerid: 3,
             searchWord: "",
             questions: [{
                 id: 1,
@@ -22,6 +23,29 @@ class Model extends EventEmitter {
                 author: "Kate",
                 postDate: "4/13/2019 3:48 PM"
             }],
+            answers: [{
+                answerid: 1,
+                questionid: 1,
+                text: "I don't know",
+                author: "Caitlin",
+                postDate: "5/1/2019 10:37 AM"
+            },{
+                answerid: 2,
+                questionid: 1,
+                text: "Probably I can help you",
+                author: "James",
+                postDate: "5/1/2019 11:05 AM"
+            },{
+                answerid: 3,
+                questionid: 1,
+                text: "Ask somebody else",
+                author: "Tina",
+                postDate: "5/1/2019 11:05 AM"
+            }],
+            newAnswer: {
+                anserid: "",
+                text: ""
+            },
             newQuestion: {
                 title: "",
                 body: "",
@@ -47,6 +71,17 @@ class Model extends EventEmitter {
         return today;
     }
 
+    getAnswersByQuestionId(questionId){
+        var result = new Array(0);
+        var k=0;
+        for(var i=0;i < this.state.answers.length;i++){
+            if(this.state.answers[i].questionid === questionId){
+                result[k++]=(this.state.answers[i]);
+            }
+        }
+
+        return result;
+    }
 
     addQuestion(title, body, tags) {
         
@@ -59,8 +94,54 @@ class Model extends EventEmitter {
                 body: body,
                 tags: tags,
                 author: "Jack",
-                postDate: this.getCurrentDate
+                postDate: this.getCurrentDate()
             }])
+        };
+        this.emit("change", this.state);
+    }
+
+    addAnswer(questionid, text){
+        this.state = {
+            ...this.state,
+            answerid: this.state.answerid+1,
+            answers: this.state.answers.concat([{
+                questionid: questionid,
+                text: text,
+                author: "James",
+                postDate: this.getCurrentDate()
+            }])
+        };
+        this.emit("change", this.state);
+    }
+
+    //splice did not work form me so I wrote my own delete function
+    deleteById(answerList, id){
+        var resultElements = new Array(0);
+        var k=0;
+        for(var i=0;i < answerList.length; i++){
+            if(answerList[i].answerid !== id){
+                resultElements[k++] = answerList[i];
+            }
+        }
+
+        return resultElements;
+    }
+
+    deleteAnswer(id){
+        this.state = {
+            ...this.state,
+            answers: this.deleteById(this.state.answers, id)
+        }
+        this.emit("change", this.state);
+    }
+
+    changeNewAnswerProperty(property, value) {
+        this.state = {
+            ...this.state,
+            newAnswer: {
+                ...this.state.newAnswer,
+                [property]: value
+            }
         };
         this.emit("change", this.state);
     }

@@ -1,7 +1,7 @@
 import React from "react";
 import model from "../model/model";
 
-const QuestionsList = ({ questions, onCreateQuestion, updateSearchword, onViewDetails, onFilterByTitle, onFilterByTag }) => (
+const QuestionsList = ({ questions, onCreateQuestion, onViewDetails, onFilterByTitle, onFilterByTag }) => (
     <div>
         <h2>{ "Stack Overflow" }</h2>
         <br/>
