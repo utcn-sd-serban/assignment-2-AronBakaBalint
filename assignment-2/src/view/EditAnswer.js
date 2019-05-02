@@ -1,7 +1,7 @@
 import React from "react";
 import model from "../model/model";
 
-const EditAnswer = ( { onEdit, onFinish } ) => (
+const EditAnswer = ( { onEdit } ) => (
     <div className="container">
         <h2>Edit Answer</h2>
         <form>
@@ -9,7 +9,7 @@ const EditAnswer = ( { onEdit, onFinish } ) => (
                 <label>New Text: </label>
                 <input onChange={ e => {model.setNewAnswerText(e.target.value)} } />
             </div>
-            <button className="btn btn-primary" onClick={() => {onEdit(); onFinish()}} >Confirm</button>
+            <button className="btn btn-primary" onClick={() => {onEdit(); model.editAnswer()}} >Confirm</button>
         </form>
     </div>
 );

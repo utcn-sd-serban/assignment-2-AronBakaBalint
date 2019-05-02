@@ -45,7 +45,7 @@ class Model extends EventEmitter {
                 postDate: "5/1/2019 11:05 AM"
             }],
             newAnswer: {
-                anserid: "",
+                anwserid: "",
                 text: ""
             },
             newQuestion: {
@@ -134,7 +134,7 @@ class Model extends EventEmitter {
         var k=0;
         for(var i=0;i < answerList.length; i++){
             editedList[k] = answerList[i];
-            if(i === answerid){
+            if(editedList[k].answerid === answerid){
                 editedList[k].text = newText;
             }
             k++;
