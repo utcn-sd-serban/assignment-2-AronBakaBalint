@@ -8,6 +8,8 @@ class Model extends EventEmitter {
             questionid: 2,
             answerid: 3,
             searchWord: "",
+            editedAnswerId: -1,
+            newAnswerText: "",
             questions: [{
                 id: 1,
                 title: "Java 8",
@@ -114,7 +116,7 @@ class Model extends EventEmitter {
         this.emit("change", this.state);
     }
 
-    //splice did not work form me so I wrote my own delete function
+    //splice did not work for me so I wrote my own delete function
     deleteById(answerList, id){
         var resultElements = new Array(0);
         var k=0;
@@ -125,6 +127,28 @@ class Model extends EventEmitter {
         }
 
         return resultElements;
+    }
+
+    editAnswerText(answerList, answerid, newText){
+        var editedList = new Array(0);
+        var k=0;
+        for(var i=0;i < answerList.length; i++){
+            editedList[k] = answerList[i];
+            if(i === answerid){
+                editedList[k].text = newText;
+            }
+            k++;
+        }
+
+        return editedList;
+    }
+
+    editAnswer(){
+        this.state = {
+            ...this.state,
+            answers: this.editAnswerText(this.state.answers, model.state.editedAnswerId, model.state.newAnswerText)
+        }
+        this.emit("change", this.state);
     }
 
     deleteAnswer(id){
@@ -155,6 +179,22 @@ class Model extends EventEmitter {
             }
         };
         this.emit("change", this.state);
+    }
+
+    setEditedAnswerId(value){
+        this.state.editedAnswerId = value;
+    }
+
+    getEditedAnswerId(){
+        return this.state.editedAnswerId;
+    }
+
+    setNewAnswerText(value){
+        this.state.newAnswerText = value;
+    }
+
+    getNewAnswerText(){
+        return this.state.newAnswerText;
     }
 
     setSearchWord(value){

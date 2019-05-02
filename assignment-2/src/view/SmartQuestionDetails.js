@@ -3,6 +3,7 @@ import model from "../model/model";
 
 import QuestionDetails from "./QuestionDetails";
 import createQuestionPresenter from "../presenter/createQuestionPresenter";
+import questionsListPresenter from "../presenter/questionsListPresenter";
 
 const mapModelStateToComponentState = (modelState, props) => (
     modelState.questions[props.match.params.index]
@@ -38,6 +39,7 @@ export default class SmartQuestionDetails extends Component {
                 answers={model.getAnswersByQuestionId(this.state.id)}
                 onCreateAnswer={createQuestionPresenter.onCreateAnswer}
                 onAnswerChange={createQuestionPresenter.onAnswerChange}
+                onEditAnswer={questionsListPresenter.onEditAnswer}
             />
         );
     }

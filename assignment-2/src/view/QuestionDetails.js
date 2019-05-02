@@ -1,7 +1,7 @@
 import React from "react";
 import model from "../model/model";
 
-const QuestionDetails = ({ id, title, body, tags, author, postDate, answers, onCreateAnswer, onAnswerChange }) => (
+const QuestionDetails = ({ id, title, body, tags, author, postDate, answers, onCreateAnswer, onAnswerChange, onEditAnswer }) => (
     <div>
         <span><font size="8"><b>{ title }</b></font></span>
         <br />
@@ -38,7 +38,7 @@ const QuestionDetails = ({ id, title, body, tags, author, postDate, answers, onC
                             <td>{answer.text}</td>
                             <td>{answer.author}</td>
                             <td>{answer.postDate}</td>
-                            <td><button className="btn btn-secondary">Edit</button></td>
+                            <td><button className="btn btn-secondary" onClick={() => {onEditAnswer(); model.setEditedAnswerId(answer.answerid)}}>Edit</button></td>
                             <td><button className="btn btn-secondary" onClick={() => model.deleteAnswer(answer.answerid)}>Delete</button></td>
                         </tr>
                     ))
