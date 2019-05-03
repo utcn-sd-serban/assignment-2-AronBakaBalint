@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import model from "../model/model";
 
 import QuestionDetails from "./QuestionDetails";
-import createQuestionPresenter from "../presenter/createQuestionPresenter";
+import createAnswerPresenter from "../presenter/createAnswerPresenter";
 import questionsListPresenter from "../presenter/questionsListPresenter";
 
 const mapModelStateToComponentState = (modelState, props) => (
@@ -37,8 +37,8 @@ export default class SmartQuestionDetails extends Component {
                 author={this.state.author}
                 postDate={this.state.postDate}
                 answers={model.getAnswersByQuestionId(this.state.id)}
-                onCreateAnswer={createQuestionPresenter.onCreateAnswer}
-                onAnswerChange={createQuestionPresenter.onAnswerChange}
+                onCreateAnswer={createAnswerPresenter.onCreateAnswer}
+                onAnswerChange={createAnswerPresenter.onAnswerChange}
                 onEditAnswer={questionsListPresenter.onEditAnswer}
             />
         );

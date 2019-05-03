@@ -5,6 +5,7 @@ class Model extends EventEmitter {
     constructor() {
         super();
         this.state = {
+            user: "",
             questionid: 2,
             answerid: 3,
             searchWord: "",
@@ -86,7 +87,6 @@ class Model extends EventEmitter {
     }
 
     addQuestion(title, body, tags) {
-        
         this.state = {
             ...this.state,
             questionid: this.state.questionid + 1,
@@ -95,7 +95,7 @@ class Model extends EventEmitter {
                 title: title,
                 body: body,
                 tags: tags,
-                author: "Jack",
+                author: this.state.user,
                 postDate: this.getCurrentDate()
             }])
         };
@@ -109,7 +109,7 @@ class Model extends EventEmitter {
             answers: this.state.answers.concat([{
                 questionid: questionid,
                 text: text,
-                author: "James",
+                author: this.state.user,
                 postDate: this.getCurrentDate()
             }])
         };
@@ -121,7 +121,7 @@ class Model extends EventEmitter {
         var resultElements = new Array(0);
         var k=0;
         for(var i=0;i < answerList.length; i++){
-            if(answerList[i].answerid !== id){
+            if(answerList[i].answerid !== id || (answerList[i].author !== this.state.user && answerList[i].answerid === id)){
                 resultElements[k++] = answerList[i];
             }
         }
@@ -134,7 +134,7 @@ class Model extends EventEmitter {
         var k=0;
         for(var i=0;i < answerList.length; i++){
             editedList[k] = answerList[i];
-            if(editedList[k].answerid === answerid){
+            if(editedList[k].answerid === answerid && editedList[k].author === this.state.user){
                 editedList[k].text = newText;
             }
             k++;
@@ -203,6 +203,10 @@ class Model extends EventEmitter {
 
     getSearchWord(){
         return this.state.searchWord;
+    }
+
+    setUser(user){
+        this.state.user = user;
     }
 
 }

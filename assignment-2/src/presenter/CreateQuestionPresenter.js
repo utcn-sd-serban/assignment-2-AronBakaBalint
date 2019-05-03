@@ -10,22 +10,8 @@ class CreateQuestionPresenter {
         window.location.assign("#/question-list");
     }
 
-    onCreateAnswer() {
-        model.addAnswer(model.state.newAnswer.answerid, model.state.newAnswer.text);
-        model.changeNewQuestionProperty("title", "");
-        model.changeNewQuestionProperty("body", "");
-    }
-
-    onAnswerEditFinished(){
-        window.location.assign("#/question-list");
-    }
-
     onQuestionChange(property, value) {
         model.changeNewQuestionProperty(property, value);
-    }
-
-    onAnswerChange(property, value) {
-        model.changeNewAnswerProperty(property, value);
     }
 
 }

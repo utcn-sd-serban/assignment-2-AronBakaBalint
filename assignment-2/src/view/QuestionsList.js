@@ -9,7 +9,7 @@ const QuestionsList = ({ questions, onCreateQuestion, onViewDetails, onFilterByT
         <table className="table" border="1">
             <thead class="thead-dark">
                 <tr>
-                    <th>Question ID</th>
+                    <th>{}</th>
                     <th>Title</th>
                     <th>Text</th>
                     <th></th>

@@ -7,7 +7,8 @@ export default class SmartLogin extends Component {
     render() {
         return (
             <Login 
-                onLogin = {loginPresenter.onLogin} />
+                onLogin={loginPresenter.onLogin}
+                />
         );
     }
 }
